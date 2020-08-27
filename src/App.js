@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useContext, useState} from 'react';
 import './App.css';
+import Main from "./Components/Templates/Main";
+import Header from "./Sections/Header";
+import Footer from "./Sections/Footer";
+import {BrowserRouter as Router, Switch} from "react-router-dom";
+import {Routes} from "./Routes/Routes";
+import {FavoriteContexts} from "./Helpers/Contexts";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [favorites, addFavorites] = useState([]);
+    return (
+        <Main>
+            <Router>
+                <FavoriteContexts.Provider value={{favorites, addFavorites}}>
+                    <Header/>
+                    <Switch>
+                        <Routes/>
+                    </Switch>
+                    <Footer/>
+                </FavoriteContexts.Provider>
+            </Router>
+        </Main>
+    );
 }
 
 export default App;
