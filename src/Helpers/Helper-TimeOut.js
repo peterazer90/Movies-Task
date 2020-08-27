@@ -1,1 +1,0 @@
-export const HelperTimeOut = (data) => setTimeout(() => data, 1000);

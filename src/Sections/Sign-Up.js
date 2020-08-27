@@ -10,7 +10,6 @@ import {useHistory} from "react-router-dom";
 import Alert from "../Components/Elements/Alert";
 import {SignUpAttrs} from "../Helpers/Helper-Form-Inputs-Attributes";
 import {HelperOnChange} from "../Helpers/Helper-OnChange";
-import {HelperTimeOut} from "../Helpers/Helper-TimeOut";
 
 function SignUp() {
     const history = useHistory();
@@ -35,7 +34,7 @@ function SignUp() {
         if (!isRegisteredUser) {
             registeringUser([...registeredUsers, inputsData])
             setRegisterSuccess(true);
-            HelperTimeOut(history.push('/sign-in'))
+            setTimeout(() => history.push('/sign-in'), 1000);
         } else setRegisterAlert(true)
     }
     return (
