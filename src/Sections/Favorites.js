@@ -1,15 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Section from "../Components/Templates/Section";
-import {FavoriteContexts} from "../Helpers/Contexts";
+import {FavoriteContexts} from "../Hooks/Contexts";
 import CardMovies from "../Components/Partials/Card-Movies";
 import Alert from "../Components/Elements/Alert";
+import {HelperTimeOut} from "../Helpers/Helper-TimeOut";
 
 function Favorites() {
     const {favorites} = useContext(FavoriteContexts);
     const [loading, isLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => isLoading(false), 1000);
+        HelperTimeOut(isLoading(false))
     }, []);
 
     return (

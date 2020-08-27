@@ -3,6 +3,7 @@ import Section from "../Components/Templates/Section";
 import CardMovies from "../Components/Partials/Card-Movies";
 import {GetData} from "../API/API-Methods";
 import {GetSearchMovies} from "../API/API-Urls";
+import {HelperTimeOut} from "../Helpers/Helper-TimeOut";
 
 function Movies() {
     const [movies, storeMovies] = useState(null);
@@ -11,7 +12,7 @@ function Movies() {
     useEffect(() => {
         GetData(GetSearchMovies('joker')).then(data => {
             storeMovies(data.Search);
-            setTimeout(() => isLoading(false), 1000);
+            HelperTimeOut(isLoading(false))
         });
     }, []);
 

@@ -3,18 +3,19 @@ import Nav from "../Components/Elements/Nav";
 import Logo from "../Components/Blocks/Logo";
 import List from "../Components/Elements/List";
 import ListItems from "../Components/Blocks/List-Items";
-import {FavoriteContexts} from "../Helpers/Contexts";
+import {FavoriteContexts, LoggedInUserContext} from "../Hooks/Contexts";
 
 function Header() {
     const {favorites} = useContext(FavoriteContexts);
+    const {loggedInUser} = useContext(LoggedInUserContext)
     const listItems = [
         {
             link: '/',
             text: 'Home'
         },
         {
-            link: '/sign-in',
-            text: 'My Account'
+            link: (loggedInUser) ? '/profile' : '/sign-in',
+            text: `My ${(loggedInUser) ? 'Profile' : 'Account'}`
         },
         {
             link: '/favorites',

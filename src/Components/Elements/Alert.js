@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Alert({text}) {
+function Alert({text, type = 'danger'}) {
     return (
-        <p className='font-weight-bold text-danger w-100 text-center'>{text}</p>
+        <p className={`text-${type} font-weight-bold  w-100 text-center`}>{text}</p>
     );
 }
 

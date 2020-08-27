@@ -5,20 +5,23 @@ import Header from "./Sections/Header";
 import Footer from "./Sections/Footer";
 import {BrowserRouter as Router, Switch} from "react-router-dom";
 import {Routes} from "./Routes/Routes";
-import {FavoriteContexts} from "./Helpers/Contexts";
+import {FavoriteContexts} from "./Hooks/Contexts";
+import Auth from "./Auth/Auth";
 
 function App() {
     const [favorites, addFavorites] = useState([]);
     return (
         <Main>
             <Router>
-                <FavoriteContexts.Provider value={{favorites, addFavorites}}>
-                    <Header/>
-                    <Switch>
-                        <Routes/>
-                    </Switch>
-                    <Footer/>
-                </FavoriteContexts.Provider>
+                <Auth>
+                    <FavoriteContexts.Provider value={{favorites, addFavorites}}>
+                        <Header/>
+                        <Switch>
+                            <Routes/>
+                        </Switch>
+                        <Footer/>
+                    </FavoriteContexts.Provider>
+                </Auth>
             </Router>
         </Main>
     );

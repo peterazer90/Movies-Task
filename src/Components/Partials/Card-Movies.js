@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import Skeleton from 'react-loading-skeleton/lib';
-import {FavoriteContexts} from "../../Helpers/Contexts";
+import {FavoriteContexts} from "../../Hooks/Contexts";
 import Img from "../Elements/Img";
 import CardButton from "../Blocks/Card-Button";
 
