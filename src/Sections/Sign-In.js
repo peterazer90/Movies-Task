@@ -30,7 +30,7 @@ function SignIn() {
 
     const onButtonClick = () => {
         const emailStored = registeredUsers.some(user => user.email === inputsData.email)
-        const correctPassword = registeredUsers.some(user => user.password === inputsData.password)
+        const correctPassword = registeredUsers.some(user => user.email === inputsData.email && user.password === inputsData.password)
         if (emailStored && correctPassword) {
             loggingIn(true);
             const getUserObject = registeredUsers.find(userObj => userObj.email === inputsData.email);
